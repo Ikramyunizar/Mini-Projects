@@ -12,6 +12,9 @@
 
     <!-- Bootstrap core CSS -->
 <link href="css/bootstrap.min.css" rel="stylesheet" >
+<link href="https://fonts.googleapis.com/css2?family=Montserrat&family=Montserrat+Subrayada&display=swap"
+        rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Merriweather&display=swap" rel="stylesheet">
 
     <!-- Favicons -->
 <link rel="apple-touch-icon" href="/docs/4.5/assets/img/favicons/apple-touch-icon.png" sizes="180x180">
@@ -23,35 +26,38 @@
 <meta name="msapplication-config" content="/docs/4.5/assets/img/favicons/browserconfig.xml">
 <meta name="theme-color" content="#563d7c">
 
-
-    <style>
-      .bd-placeholder-img {
-        font-size: 1.125rem;
-        text-anchor: middle;
-        -webkit-user-select: none;
-        -moz-user-select: none;
-        -ms-user-select: none;
-        user-select: none;
-      }
-
-      @media (min-width: 768px) {
-        .bd-placeholder-img-lg {
-          font-size: 3.5rem;
-        }
-      }
-    </style>
-    <!-- Custom styles for this template -->
     <link rel="stylesheet" href="css/style.css">
   </head>
   <body class="text-center">
-    <form class="form-signin">
-  <img class="mb-4" src="/docs/4.5/assets/brand/bootstrap-solid.svg" alt="" width="72" height="72">
-  <h1 class="h3 mb-3 font-weight-normal">Please sign in</h1>
-  <input type="text" class="form-control" name="firstname" id="" placeholder="First Name">
-  <input type="text" class="form-control" name="lastname" id="" placeholder="Last Name">
-  <input type="email" id="inputEmail" class="form-control" placeholder="Email address" required autofocus>
+    <div class="container">
+      <section id="main">
+      <div class="row">
+        <div class="col">
+          <img src="images/chimp2.png" class="image-header" alt="" srcset="">
+          <h1 class="title-text">MailChimp Email Getter</h1></div>
+      </div>
+    <div class="row">
+      <div class="col text-center">
+        <form class="form-signin justify-content-center form-box" action="/" method="POST">
+        <input type="text" class="form-control" name="firstname" id="" placeholder="First Name">
+        <input type="text" class="form-control" name="lastname" id="" placeholder="Last Name">
+        <input type="email" id="inputEmail" class="form-control" placeholder="Email address" name="email" required autofocus>
+        <button class="btn btn-lg btn-primary btn-primary" type="submit">Submit</button>  
+      </div>
+    </div>
+  </section>
+
+  <section id="desc">
+    <div class="row">
+      <div class="col form-box">
+        <p class="text-justify">This page is able to put to detect input from user and sending POST data to MailChimp's API currently logged in with my Account. In a nutshell, A subscription feature.</p>
+      </div>
+    </div>
+  </section>
+    
+    
   </div>
-  <button class="btn btn-lg btn-primary btn-block" type="submit">Sign in</button>
+  
 </form>
 </body>
 </html>
