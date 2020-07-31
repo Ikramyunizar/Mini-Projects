@@ -5,6 +5,8 @@ const https = require('https');
 const app = express();
 
 app.use(bodyparser.urlencoded({extended : true}));
+app.use(express.static('public'));
+app.set('view engine' , 'ejs');
 
 app.get('/', (req, res) => {
     let url = 'https://api.covid19api.com/summary'
@@ -15,12 +17,24 @@ app.get('/', (req, res) => {
         data += chunk;
     })
     response.on('end', () => {
-        const summary = JSON.parse(data);
-        const globalCount = summary.Global.NewConfirmed;
-        res.send("<h1>The current global count of covid is " + globalCount + "</h1>");
-    })
-
-    })
+        let summary = JSON.parse(data);
+        let todayCount = summary.Global.NewConfirmed.toLocaleString();
+        let totalConfirmed = summary.Global.TotalConfirmed.toLocaleString();
+        let newDeaths = summary.Global.NewDeaths.toLocaleString();
+        let totalDeaths = summary.Global.TotalDeaths.toLocaleString();
+        let newRecovered = summary.Global.NewRecovered.toLocaleString();
+        let totalRecovered = summary.Global.NewConfirmed.toLocaleString();
+        res.render("index", {
+            'totalConfirmed' : totalConfirmed,
+            'todayCount' : todayCount,
+            'newRecovered' : newRecovered,
+            'newDeaths' : newDeaths,
+            'totalDeaths' : totalDeaths,
+            'totalRecovered' : totalRecovered
+        });
+    });
+    });
+    
 })
 
 app.listen(3000, () =>{
